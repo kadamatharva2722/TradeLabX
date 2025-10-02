@@ -1,0 +1,163 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.backgroundForUserProfile{
+    background-color: #121212;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    padding: 30px;
+    font-family: poppins;
+}
+.userProfileData{
+    background-color: #2b2b2b7b;
+    width: 550px;
+    height:fit-content;
+    margin-top: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.178);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    gap: 10px;
+}
+.profileImgAndname{
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+.profileImgAndname .imgStyle{
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 1px solid white;
+}
+.profileBody{
+    margin: 35px;
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    width: 87%;
+    gap: 10px;
+}
+.editbutton{
+    width: fit-content;
+    height: fit-content;
+    font-size: 15px;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 4px;
+    color: aliceblue;
+    background-color: rgb(20, 84, 245);
+}
+.profileBody input{
+    width: 210px;
+    height: 29px;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.436);
+    border-radius: 4px;
+    margin: 5px;
+    color: aliceblue;
+    font-size: 15px;
+    padding: 7px;
+}
+.profileImgAndname .input1{
+    width: 190px;
+    height: 30px;
+    font-size: 26px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    color: aliceblue;
+}
+.profileImgAndname .input2{
+    background-color: rgba(240, 248, 255, 0.301);
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 3px;
+    text-align: center;
+}
+.delete{
+    background-color: rgba(255, 0, 0, 0.893);
+    width: 100px;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .userProfileData {
+        width: 90%;
+        padding: 15px;
+        margin-top: 10px;
+    }
+
+    .profileImgAndname .imgStyle {
+        width: 120px;
+        height: 120px;
+    }
+
+    .profileImgAndname .input1 {
+        width: 150px;
+        font-size: 20px;
+    }
+
+    .profileBody {
+        margin: 20px;
+        width: 100%;
+    }
+
+    .profileBody input {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .editbutton {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .userProfileData {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .profileImgAndname .imgStyle {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profileImgAndname .input1 {
+        width: 130px;
+        font-size: 18px;
+    }
+
+    .profileBody {
+        margin: 15px;
+    }
+
+    .profileBody input {
+        width: 80%;
+        font-size: 13px;
+    }
+    
+
+    .editbutton {
+        padding: 6px 15px;
+        font-size: 13px;
+    }
+}
