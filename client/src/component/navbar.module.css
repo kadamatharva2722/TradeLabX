@@ -1,0 +1,68 @@
+.navbar{
+    width: 100%;
+    height: 70px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+}
+.logo{
+    font-size: 30px;
+    color: white;
+    font-family: sans-serif;
+    font-weight: 500;
+    margin: 30px;
+    margin-top: 50px;
+}
+.menu{
+    display: flex;
+    align-items: center;
+    color: white;
+}
+.optionEdit{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    color: white;
+    gap: 50px;
+    padding: 40px;
+}
+.optionEdit li{
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .optionEdit {
+    gap: 20px;
+    padding: 0;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .logo {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .optionEdit {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .optionEdit li {
+    font-size: 16px;
+  }
+}
