@@ -1,0 +1,236 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.historyPage {
+  background-color: #121212;
+  color: #fff;
+  min-height: 100vh;
+  padding: 5px;
+  font-family: poppins;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.navbar h1{
+    font-size: 36px;
+    margin-left: 15px;
+}
+
+.summaryCards {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 20px;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background-color: #1E1E1E;
+  padding: 15px 20px;
+  border-radius: 8px;
+  flex: 1;
+  text-align: center;
+  width: 350px;
+  height: 100px;
+}
+
+.filterBar {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.filterBar select {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin: 8px;
+}
+
+.tradeTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tradeTable th, .tradeTable td {
+  padding: 6px 7px;
+  text-align: left;
+}
+.tradeTable td {
+    padding: 10px 12px;
+}
+.tradeTable th {
+  background-color: #2C2C2C;
+}
+
+.tradeTable tr:nth-child(even) {
+  background-color: #1A1A1A;
+}
+
+.profitRow {
+  color: #4CAF50;
+}
+
+.lossRow {
+  color: #F44336;
+}
+.findButton{
+  width: 50px;
+  height: 30px;
+  background-color: rgba(29, 94, 235, 0.922);
+  border: none;
+  border-radius: 5px;
+  margin: 8px;
+  color: #ffffff;
+}
+
+.tradeTable tr:hover {
+  background-color: #333;
+}
+.tableOHistory{
+    width: 90%;
+    max-height: 400px;
+    overflow: scroll;
+    scrollbar-width: none; 
+  -ms-overflow-style: none;
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.135);
+  border-radius: 7px;
+}
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    background-color: #1c1c1c;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 700px;
+    max-height: 93%;
+    overflow-y: auto;
+    box-shadow: 0 0 10px black;
+}
+
+.closeButton {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #ff4c4c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+.info{
+  display: flex;
+  gap: 20px;
+}
+.infoParts{
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .summaryCards {
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 100%;
+  }
+  .card {
+    width: 45%;
+    height: auto;
+    min-height: 80px;
+  }
+  .filterBar {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .filterBar select,
+  .findButton {
+    width: 45%;
+  }
+  .modalContent {
+    width: 90%;
+    max-height: 85%;
+  }
+  .info {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .infoParts {
+    width: 45%;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 600px) {
+  .navbar h1 {
+    font-size: 24px;
+    text-align: center;
+    margin-left: 0;
+  }
+  .summaryCards {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+  .card {
+    width: 100%;
+    min-height: 70px;
+  }
+  .filterBar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .filterBar select,
+  .findButton {
+    width: 100%;
+  }
+  .tableOHistory {
+    width: 100%;
+    padding: 5px;
+    max-height: 300px;
+  }
+  .tradeTable th, .tradeTable td {
+    font-size: 12px;
+    padding: 6px;
+  }
+  .modalContent {
+    width: 95%;
+    max-height: 80%;
+    padding: 15px;
+  }
+  .info {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .infoParts {
+    width: 100%;
+  }
+}
