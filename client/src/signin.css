@@ -1,10 +1,11 @@
-*{
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.backgroundForSignLog{
+.backgroundForSignLog {
   background-color: rgb(35, 34, 34);
   position: fixed;
   padding: 30px;
@@ -12,99 +13,183 @@
   height: 100%;
   font-family: sans-serif;
   display: flex;
-  justify-content:flex-start;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   gap: 40px;
+  overflow-y: auto; /* ✅ allow scrolling if needed */
 }
-.pofheading{
+
+.pofheading {
   color: aliceblue;
   margin-top: -23px;
   font-size: 20px;
 }
-.backgroundForSignLog .h11{
+
+.backgroundForSignLog .h11 {
   font-size: 58px;
   color: aliceblue;
   font-weight: 700;
   font-family: outfit;
 }
-.boxForConnection{
+
+.boxForConnection {
   background-color: rgba(43, 43, 43, 1);
   width: 80%;
-  height:78%;
+  height: 78%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px;
   border-radius: 10px;
-  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.897)
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.897);
+  overflow: hidden;
 }
-.boxForsignlog{
+
+.boxForsignlog {
   width: 37%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-self: center;
-  align-items: first baseline;
+  align-items: flex-start;
   padding: 33px;
-  gap: 38px;
+  gap: 25px;
 }
-.boxForsignlog h3{
+
+.boxForsignlog h3 {
   color: rgba(240, 248, 255, 0.952);
   font-size: 29px;
-  padding-left: 5px;
-  padding-top: 20px;
   font-weight: 700;
 }
-.boxForsignlog label{
+
+.boxForsignlog label {
   font-size: 19px;
   color: rgba(240, 248, 255, 0.694);
   font-weight: 300;
-  
 }
-.boxForsignlog input{
+.boxForsignlog form{
+  width: 260px;
+}
+.boxForsignlog input {
   margin-top: 10px;
-  width: 290px;
+  width: 100%;
+  max-width: 320px;
   height: 38px;
-  border: 0px;
   border-radius: 5px;
   padding-left: 15px;
   margin-bottom: 20px;
+  border: none;
 }
-.boxForsignlog .form1{
+
+.boxForsignlog .form1 {
   display: flex;
   flex-direction: column;
 }
-.boxForsignlog button{
+
+.boxForsignlog button {
   width: 110px;
   height: 40px;
   border-radius: 6px;
-  border: 0px;
+  border: none;
   background-color: rgba(29, 94, 235, 0.922);
   color: aliceblue;
   font-size: 15px;
+  cursor: pointer;
 }
-.boxForsignlog .p2{
+
+.boxForsignlog .p2 {
   color: aliceblue;
   font-size: 16px;
 }
-.boxForsignlog .buttonforLogin{
-    margin-top: -22px;
+
+.boxForsignlog .buttonforLogin {
+  margin-top: -10px;
 }
-.boxForAd{
+
+.boxForAd {
   width: 63%;
   height: 100%;
-  background-image:url('./assets/screenshotoftradingview.png');
+  background-image: url('./assets/screenshotoftradingview.png');
+  background-size: cover;
+  background-position: center;
   display: flex;
   padding: 20px;
-  flex-wrap: wrap;
   align-items: end;
-  justify-content:center;
+  justify-content: center;
 }
-.boxForAd p{
+
+.boxForAd p {
   font-family: outfit;
   color: aliceblue;
   font-size: 30px;
   font-weight: 800;
   margin: 40px;
+}
+
+/* ✅ Tablet (two parts stack neatly) */
+@media (max-width: 1024px) {
+  .boxForConnection {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+
+  .boxForsignlog {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .boxForsignlog input {
+    max-width: 90%;
+  }
+
+  .boxForsignlog h3 {
+    font-size: 24px;
+  }
+
+  .boxForAd {
+    width: 100%;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .boxForAd p {
+    font-size: 22px;
+    margin: 20px;
+  }
+}
+
+/* ✅ Mobile (compact layout) */
+@media (max-width: 600px) {
+  .backgroundForSignLog .h11 {
+    font-size: 36px;
+  }
+
+  .pofheading {
+    font-size: 16px;
+  }
+
+  .boxForsignlog h3 {
+    font-size: 20px;
+  }
+
+  .boxForsignlog input {
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .boxForsignlog button {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .boxForAd {
+    height: 200px;
+  }
+
+  .boxForAd p {
+    font-size: 18px;
+    margin: 10px;
+  }
 }
