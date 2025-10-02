@@ -1,0 +1,88 @@
+.alignCard {
+  display: flex;
+  width: 100%;
+  height: auto; /* no fixed height */
+  justify-content: center;
+}
+
+.alignCard .officialCard {
+  width: 85%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;     /* cards wrap naturally */
+  align-items: flex-start;  /* important! prevents cards from stretching */
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.alignCard .ccard {
+  width: 280px;
+  /* remove fixed height, let content decide */
+  border-radius: 12px;
+  font-family: sans-serif;
+  padding: 15px;
+  background: transparent;
+}
+.ccard{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.alignCard .headerofcard {
+  font-size: 28px;
+  font-weight: 600;
+  color: rgba(240, 248, 255, 0.95);
+  margin-bottom: 8px;
+}
+
+.alignCard .content {
+  font-size: 20px;
+  color: rgba(240, 248, 255, 0.85);
+  font-weight: 300;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .alignCard .ccard {
+    width: 45%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .alignCard .officialCard {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    width: 70%;
+  }
+  .ccard{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.313);
+}
+
+
+  .alignCard .ccard {
+    width: 100%;
+    max-width: 90%;
+  }
+
+  .alignCard .headerofcard {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .alignCard .content {
+    font-size: 16px;
+    text-align: center;
+  }
+}
