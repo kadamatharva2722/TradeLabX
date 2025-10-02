@@ -1,0 +1,110 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.backgroundForSignLog{
+  background-color: rgb(35, 34, 34);
+  position: fixed;
+  padding: 30px;
+  width: 100%;
+  height: 100%;
+  font-family: sans-serif;
+  display: flex;
+  justify-content:flex-start;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+}
+.pofheading{
+  color: aliceblue;
+  margin-top: -23px;
+  font-size: 20px;
+}
+.backgroundForSignLog .h11{
+  font-size: 58px;
+  color: aliceblue;
+  font-weight: 700;
+  font-family: outfit;
+}
+.boxForConnection{
+  background-color: rgba(43, 43, 43, 1);
+  width: 80%;
+  height:78%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.897)
+}
+.boxForsignlog{
+  width: 37%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: first baseline;
+  padding: 33px;
+  gap: 38px;
+}
+.boxForsignlog h3{
+  color: rgba(240, 248, 255, 0.952);
+  font-size: 29px;
+  padding-left: 5px;
+  padding-top: 20px;
+  font-weight: 700;
+}
+.boxForsignlog label{
+  font-size: 19px;
+  color: rgba(240, 248, 255, 0.694);
+  font-weight: 300;
+  
+}
+.boxForsignlog input{
+  margin-top: 10px;
+  width: 290px;
+  height: 38px;
+  border: 0px;
+  border-radius: 5px;
+  padding-left: 15px;
+  margin-bottom: 20px;
+}
+.boxForsignlog .form1{
+  display: flex;
+  flex-direction: column;
+}
+.boxForsignlog button{
+  width: 110px;
+  height: 40px;
+  border-radius: 6px;
+  border: 0px;
+  background-color: rgba(29, 94, 235, 0.922);
+  color: aliceblue;
+  font-size: 15px;
+}
+.boxForsignlog .p2{
+  color: aliceblue;
+  font-size: 16px;
+}
+.boxForsignlog .buttonforLogin{
+    margin-top: -22px;
+}
+.boxForAd{
+  width: 63%;
+  height: 100%;
+  background-image:url('./assets/screenshotoftradingview.png');
+  display: flex;
+  padding: 20px;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content:center;
+}
+.boxForAd p{
+  font-family: outfit;
+  color: aliceblue;
+  font-size: 30px;
+  font-weight: 800;
+  margin: 40px;
+}
