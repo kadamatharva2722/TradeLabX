@@ -1,4 +1,5 @@
 
+
 import React, { useEffect, useState } from "react";
 import './signin.css';
 import { useNavigate } from "react-router";
@@ -43,7 +44,7 @@ function Signin() {
 
     return (
         <div className='backgroundForSignLog'>
-            <h1 className='h11'>TradeLog</h1>
+            <h1 className='h11'>TradeLabX</h1>
             <p className='pofheading'>- The Edge behind every trade -</p>
             <div className='boxForConnection'>
                 <div className='boxForsignlog'>
