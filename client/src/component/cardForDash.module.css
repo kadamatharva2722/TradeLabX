@@ -1,0 +1,52 @@
+.cardForDash{
+    background-color: #2b2b2b7b;
+    width: 400px;
+    height: 170px;
+    border: 1px solid rgba(255, 255, 255, 0.281);
+    box-shadow: 0 0px 14px rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 20px;
+}
+.h33{
+    color: rgba(240, 248, 255, 0.879);
+    font-size: 27px;
+}
+.h22{
+    color: aliceblue;
+    font-size: 32px;
+    font-weight: 600;
+    margin: 10px;
+}
+.p1{
+    color: rgba(240, 248, 255, 0.5);
+    font-size: 20px;
+    margin: 10px;
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .cardForDash {
+    width: 45% !important; /* two per row */
+    height: auto;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 600px) {
+  .cardForDash {
+    width: 90% !important; /* single card per row */
+    margin: 0 auto;
+  }
+
+  .h33 {
+    font-size: 22px;
+  }
+
+  .h22 {
+    font-size: 26px;
+  }
+
+  .p1 {
+    font-size: 16px;
+  }
+}
