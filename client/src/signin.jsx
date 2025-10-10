@@ -24,7 +24,7 @@ function Signin() {
     function submitForm(e) {
         e.preventDefault();
 
-        const res = axios.post('trade-lab-x-server.vercel.app/register', { name, email, password })
+        const res = axios.post('https://trade-lab-x-server.vercel.app/register', { name, email, password })
             .then(res => {
                 console.log(res);
                 setError('');
