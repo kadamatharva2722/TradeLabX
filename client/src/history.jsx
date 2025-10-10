@@ -27,7 +27,7 @@ export default function History() {
     };
 
     async function fetchTradeData() {
-        const res = await axios.get(`trade-lab-x-server.vercel.app/trade/getTradeData/${user._id}`);
+        const res = await axios.get(`https://trade-lab-x-server.vercel.app/trade/getTradeData/${user._id}`);
         const { tradeData } = res.data;
         setTradeData(tradeData);
         calculateProfit(tradeData);
@@ -35,7 +35,7 @@ export default function History() {
 
     async function submitFilter(e) {
         e.preventDefault();
-        const res = await axios.get('trade-lab-x-server.vercel.app/trade/getFilterTrade', {
+        const res = await axios.get('https://trade-lab-x-server.vercel.app/trade/getFilterTrade', {
             params: {
                 user: user._id,
                 assets: assets,
