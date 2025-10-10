@@ -25,7 +25,7 @@
 }
 .popup{
   width: 500px;
-  height: 600px;
+  height: fit-content;
   background-color: aliceblue;
   display: flex;
   align-items: center;
