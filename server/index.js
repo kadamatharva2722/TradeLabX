@@ -1,10 +1,11 @@
+require('dotenv').config();
 const express=require('express');
 const app=express();
 const {connectToMongoDB}=require('./connect');
 const cors=require('cors');
 const path=require('path');
 const cookieParser = require('cookie-parser');
-const port=3000;
+const port=process.env.PORT;
 
 //Routes
 const userRouter=require('./Routes/user');
@@ -21,12 +22,14 @@ app.use(checkForAuthentication("token"));
 
 
 //ConnectToMongoDB
-connectToMongoDB('mongodb://127.0.0.1:27017/TradeData');
+connectToMongoDB(process.env.MongoURL);
 
 //Routes
 app.use('/', userRouter);
 app.use('/trade', tradeRouter);
 
-app.listen(port, ()=>{
+/*app.listen(port || 3000, ()=>{
     console.log(`server started at port: ${port}`);
-})
+})*/
+
+module.exports=app;
