@@ -26,7 +26,7 @@ function Login() {
     function submitForm(e) {
         e.preventDefault();
 
-        axios.post('http://localhost:3000/login', { email, password })
+        axios.post('trade-lab-x-server.vercel.app/login', { email, password })
             .then(res => {
                 setError('');
                 const userData = res.data.user;
