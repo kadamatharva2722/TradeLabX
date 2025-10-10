@@ -24,7 +24,7 @@ function DashBoard() {
     const user = JSON.parse(localStorage.getItem("user"));
 
     async function fetchTradesData() {
-        const res = await axios.get(`trade-lab-x-server.vercel.app/trade/getTradeData/${user._id}`);
+        const res = await axios.get(`https://trade-lab-x-server.vercel.app/trade/getTradeData/${user._id}`);
         const { tradeData, userFind } = res.data;
         const arr = tradeData.map((trade, idx) => ({ id: idx, strategy: trade.strategy }));
         setStrategyArray(arr);
