@@ -23,7 +23,7 @@ export default function UserProfile() {
         if (!result) return;
 
         try {
-            const res = await axios.post("trade-lab-x-server.vercel.app/deleteAccount", { email: user.email });
+            const res = await axios.post("https://trade-lab-x-server.vercel.app/deleteAccount", { email: user.email });
             if (res.data.message === "User successfully deleted") {
                 localStorage.removeItem("user");
                 navigate("/signin");
@@ -45,7 +45,7 @@ export default function UserProfile() {
         if (profileImg instanceof File) formData.append("profileImg", profileImg);
 
         try {
-            const res = await axios.post('trade-lab-x-server.vercel.app/EditProfile', formData, {
+            const res = await axios.post('https://trade-lab-x-server.vercel.app/EditProfile', formData, {
                 headers: { "Content-Type": "multipart/form-data" }
             });
             localStorage.setItem("user", JSON.stringify(res.data.userData));
