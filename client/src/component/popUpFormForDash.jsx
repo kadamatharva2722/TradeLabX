@@ -21,7 +21,7 @@ export default function PopUpForDashForm({ setTotalAmount, setProfit, totalAmoun
   async function submitForm(e) {
     e.preventDefault();
     console.log(user);
-    const res = await axios.post('http://localhost:3000/trade/formData', { symbol, entry: Number(entry), exit: Number(exit), strategy, qty: Number(qty), date, textArea: textarea, insertedBy: user._id });
+    const res = await axios.post('trade-lab-x-server.vercel.app/trade/formData', { symbol, entry: Number(entry), exit: Number(exit), strategy, qty: Number(qty), date, textArea: textarea, insertedBy: user._id });
     const {userUpdate}=res.data;
     const newTotal = userUpdate.amount;
     const newProfit = userUpdate.profit;
