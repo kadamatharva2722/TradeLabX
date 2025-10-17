@@ -5,14 +5,22 @@ const tradeModel = require('../Models/trade');
 const multer = require('multer');
 const path = require('path');
 
-//MULTER
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, '../public/assets'));
-  },
-  filename: function (req, file, cb) {
-    const filename = `${Date.now()}-${file.originalname}`;
-    cb(null, filename);
+
+const cloudinary = require('cloudinary').v2;
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,      
+  api_key: process.env.CLOUD_API_KEY,
+  api_secret: process.env.CLOUD_API_SECRET
+});
+
+
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'profileImages', 
+    allowed_formats: ['jpg', 'jpeg', 'png'],
   },
 });
 
@@ -60,30 +68,22 @@ router.post('/login', async (req, res) => {
 
 router.post('/EditProfile', upload.single('profileImg'), async (req, res) => {
   try {
-    console.log("req.body:", req.body);
-    console.log("req.file:", req.file);
-
     const { userId, name, email, amount } = req.body;
     const updateData = { name, email, amount };
 
-    if (req.file) {
-      updateData.profileImg = `/assets/${req.file.filename}`;
+    if (req.file && req.file.path) {
+      updateData.profileImg = req.file.path;
     }
 
-    const updatedUser = await UserModel.findByIdAndUpdate(
-      userId,
-      updateData,
-      { new: true }
-    );
-
-    if (!updatedUser) return res.status(404).json({ error: "User not found" });
+    const updatedUser = await UserModel.findByIdAndUpdate(userId, updateData, { new: true });
 
     res.json({ userData: updatedUser });
   } catch (err) {
-    console.error("EditProfile error:", err); // <--- log full error
-    res.status(500).json({ error: err.message });
+    console.error("Error updating profile:", err);
+    res.status(500).json({ error: "Server error" });
   }
 });
+
 
 
 router.post('/deleteAccount', async (req,res)=>{
