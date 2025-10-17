@@ -44,13 +44,14 @@ async function submitForm(e) {
 
     setTotalAmount(userUpdate.amount);
     setProfit(userUpdate.profit);
-
+    
     // Close popup safely after success
     setIsOpen(false);
+    setTimeout(() => window.location.reload(), 300);
   } catch (err) {
     console.error("Error submitting form:", err);
   }
-  window.location.reload();
+  
 }
 
 
