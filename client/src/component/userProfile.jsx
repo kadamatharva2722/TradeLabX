@@ -13,7 +13,7 @@ export default function UserProfile() {
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
   const [amount, setAmount] = useState(user.amount || 0);
-  const [profileImg, setProfile] = useState(null); // for new selected file
+  const [profileImg, setProfile] = useState(null); // new selected file
 
   const navigate = useNavigate();
   const onlyDate = new Date(user.createdAt).toLocaleDateString('en-GB');
@@ -57,7 +57,7 @@ export default function UserProfile() {
         { headers: { "Content-Type": "multipart/form-data" } }
       );
 
-      // Update local state and localStorage
+      // Update state and localStorage
       setUser(res.data.userData);
       localStorage.setItem("user", JSON.stringify(res.data.userData));
       setEdit(false);
@@ -72,7 +72,7 @@ export default function UserProfile() {
     ? URL.createObjectURL(profileImg) // preview newly selected file
     : user.profileImg && user.profileImg !== '/assets/Profile.png'
       ? `https://trade-lab-x-server.vercel.app${user.profileImg}?t=${Date.now()}` // backend image
-      : 'https://trade-lab-x-server.vercel.app/assets/Profile.png'; // default image
+      : 'https://trade-lab-x-server.vercel.app/assets/Profile.png'; // default
 
   return (
     <div className={style.profileContainer}>
@@ -85,14 +85,6 @@ export default function UserProfile() {
               alt="Profile"
               className={style.profileImage}
             />
-            {edit && (
-              <input
-                type="file"
-                accept="image/*"
-                onChange={(e) => setProfile(e.target.files[0])}
-                className={style.fileInput}
-              />
-            )}
           </div>
           <input
             type="text"
@@ -105,6 +97,16 @@ export default function UserProfile() {
 
         {/* Edit form */}
         <form onSubmit={saveEdit} className={style.profileBody}>
+          <label>Profile Image</label>
+          {edit && (
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => setProfile(e.target.files[0])}
+              className={style.fileInput}
+            />
+          )}
+
           <label>Email</label>
           <input
             type="email"
