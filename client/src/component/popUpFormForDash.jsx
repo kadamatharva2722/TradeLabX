@@ -33,7 +33,7 @@ export default function PopUpForDashForm({ setTotalAmount, setProfit, totalAmoun
     //localStorage.setItem(`profit_${user._id}`, newProfit);
 
     setIsOpen(!isOpen);
-    window.location.reload();
+    
   }
 
   return (
