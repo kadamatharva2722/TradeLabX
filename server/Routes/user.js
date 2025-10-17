@@ -62,9 +62,8 @@ router.post('/EditProfile', upload.single('profileImg'), async (req, res) => {
   const { userId, name, email, amount } = req.body;
   const updateData = { name, email, amount };
   
-
   if (req.file) {
-    updateData.profileImg = `http://localhost:3000/assets/${req.file.filename}`;
+    updateData.profileImg = `/assets/${req.file.filename}`;
   }
   
   const updateduser = await UserModel.findByIdAndUpdate({ _id: userId }, updateData, { new: true });
