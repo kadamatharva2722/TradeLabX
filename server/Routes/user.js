@@ -59,17 +59,32 @@ router.post('/login', async (req, res) => {
 
 
 router.post('/EditProfile', upload.single('profileImg'), async (req, res) => {
-  const { userId, name, email, amount } = req.body;
-  const updateData = { name, email, amount };
-  
-  if (req.file) {
-    updateData.profileImg = `/assets/${req.file.filename}`;
+  try {
+    console.log("req.body:", req.body);
+    console.log("req.file:", req.file);
+
+    const { userId, name, email, amount } = req.body;
+    const updateData = { name, email, amount };
+
+    if (req.file) {
+      updateData.profileImg = `/assets/${req.file.filename}`;
+    }
+
+    const updatedUser = await UserModel.findByIdAndUpdate(
+      userId,
+      updateData,
+      { new: true }
+    );
+
+    if (!updatedUser) return res.status(404).json({ error: "User not found" });
+
+    res.json({ userData: updatedUser });
+  } catch (err) {
+    console.error("EditProfile error:", err); // <--- log full error
+    res.status(500).json({ error: err.message });
   }
-  
-  const updateduser = await UserModel.findByIdAndUpdate({ _id: userId }, updateData, { new: true });
-  
-  res.json({ userData: updateduser });
 });
+
 
 router.post('/deleteAccount', async (req,res)=>{
 
