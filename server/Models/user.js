@@ -24,7 +24,7 @@ const UserSchema = new mongoose.Schema({
     },
     profileImg:{
         type:String,
-        default:'http://localhost:3000/assets/Profile.png',
+        default:'/assets/Profile.pngs',
     },
     amount:{
         type:Number,
