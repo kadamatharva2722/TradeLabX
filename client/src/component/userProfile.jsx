@@ -59,7 +59,7 @@ export default function UserProfile() {
     ? URL.createObjectURL(profileImg) // preview new selected file
     : user.profileImg
       ? `https://trade-lab-x-server.vercel.app${user.profileImg}?t=${Date.now()}` // backend image
-      : '/default-profile.png'; // fallback
+      : 'https://trade-lab-x-server.vercel.app/assets/Profile.png'; // fallback
 
   return (
     <div className={style.profileContainer}>
