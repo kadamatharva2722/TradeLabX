@@ -18,23 +18,40 @@ export default function PopUpForDashForm({ setTotalAmount, setProfit, totalAmoun
 
   const user = JSON.parse(localStorage.getItem("user"));
 
-  async function submitForm(e) {
-    e.preventDefault();
-    console.log(user);
-    const res = await axios.post('https://trade-lab-x-server.vercel.app/trade/formData', { symbol, entry: Number(entry), exit: Number(exit), strategy, qty: Number(qty), date, textArea: textarea, insertedBy: user._id });
-    const {userUpdate}=res.data;
-    const newTotal = userUpdate.amount;
-    const newProfit = userUpdate.profit;
+async function submitForm(e) {
+  e.preventDefault();
 
-    setTotalAmount(newTotal);
-    setProfit(newProfit);
+  try {
+    const res = await axios.post(
+      'https://trade-lab-x-server.vercel.app/trade/formData',
+      {
+        symbol,
+        entry: Number(entry),
+        exit: Number(exit),
+        strategy,
+        qty: Number(qty),
+        date,
+        textArea: textarea,
+        insertedBy: user._id,
+      }
+    );
 
-    //localStorage.setItem(`totalAmount_${user._id}`, newTotal);
-    //localStorage.setItem(`profit_${user._id}`, newProfit);
+    const { userUpdate } = res.data || {};
+    if (!userUpdate) {
+      console.error("Unexpected response", res.data);
+      return;
+    }
 
-    setIsOpen(!isOpen);
-    
+    setTotalAmount(userUpdate.amount);
+    setProfit(userUpdate.profit);
+
+    // Close popup safely after success
+    setIsOpen(false);
+  } catch (err) {
+    console.error("Error submitting form:", err);
   }
+}
+
 
   return (
     <>
@@ -93,7 +110,10 @@ export default function PopUpForDashForm({ setTotalAmount, setProfit, totalAmoun
                     <input type="date" name="date" id="" onChange={(e) => setDate(e.target.value)} />
 
                     <label htmlFor="">Reason for Trade action? Enter Here</label>
-                    <input type="textarea" className={style.ttextarea} onChange={(e) => setTextarea(e.target.value)} />
+                    <textarea
+                      className={style.ttextarea}
+                       onChange={(e) => setTextarea(e.target.value)}
+                      ></textarea>
 
                     <button type='submit' className={style.sunmitBtn}>Submit</button>
                   </form>
