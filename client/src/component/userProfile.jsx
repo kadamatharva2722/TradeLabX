@@ -55,11 +55,12 @@ export default function UserProfile() {
   };
 
   // Dynamic profile image logic
-  const displayImage = profileImg
-    ? URL.createObjectURL(profileImg) // preview new selected file
-    : user.profileImg
-      ? `https://trade-lab-x-server.vercel.app${user.profileImg}?t=${Date.now()}` // backend image
-      : 'https://trade-lab-x-server.vercel.app/assets/Profile.png'; // fallback
+  const displayImage =
+  profileImg instanceof File
+    ? URL.createObjectURL(profileImg) // preview newly selected file
+    : user.profileImg && user.profileImg !== '/assets/Profile.png'
+      ? `https://trade-lab-x-server.vercel.app${user.profileImg}?t=${Date.now()}` // backend image with cache-busting
+      : 'https://trade-lab-x-server.vercel.app/assets/Profile.png'; // default
 
   return (
     <div className={style.profileContainer}>
