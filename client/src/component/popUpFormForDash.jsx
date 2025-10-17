@@ -50,6 +50,7 @@ async function submitForm(e) {
   } catch (err) {
     console.error("Error submitting form:", err);
   }
+  window.location.reload();
 }
 
 
