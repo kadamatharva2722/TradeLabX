@@ -10,6 +10,7 @@ export default function History() {
     const [assets, setAssets] = useState('');
     const [strategy, setStrategy] = useState('');
     const [profitt, setProfitt] = useState(0);
+    const [winRate, setWinRate] = useState(0);
 
     const [showModal, setShowModal] = useState(false);
     const [selectedTrade, setSelectedTrade] = useState(null);
@@ -57,7 +58,21 @@ export default function History() {
             total += (Number(trade.exit) - Number(trade.entry)) * Number(trade.qty);
         });
         setProfitt(total);
+        setWinRate(calculateWinRate(data));
     }
+    
+    function calculateWinRate(data) {
+    if (data.length === 0) return 0;
+    
+    let winCount = 0;
+    data.forEach((trade) => {
+        const profit = (Number(trade.exit) - Number(trade.entry)) * Number(trade.qty);
+        if (profit > 0) winCount++;
+    });
+    const rate = (winCount / data.length) * 100;
+    return rate.toFixed(1); // 1 decimal point
+    }
+
 
     function openModal(trade) {
         setSelectedTrade(trade);
@@ -87,7 +102,7 @@ export default function History() {
                 <div className={style.card}>Total Trades:
                     <h1>{tradeData.length}</h1></div>
                 <div className={style.card}>Win Rate:
-                    <h1>68%</h1></div>
+                    <h1>{winRate}%</h1></div>
                 <div className={style.card}>Net P/L:
                     <h1 style={{color: profitt<0 ? 'red':'green'}}>${profitt}</h1></div>
             </div>
