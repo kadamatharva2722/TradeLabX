@@ -23,7 +23,7 @@
 .bodyForDashboard{
     background-color: #121212;
     width: 100%;
-    height: 190vh;
+    height: fit-content;
     font-family: outfit;
 }
 .headingOfDash{
