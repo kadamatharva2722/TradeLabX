@@ -16,7 +16,7 @@ function NavbarForDash() {
 
   // Determine profile image to display
   const displayImage =
-    user.profileImg === 'assets/Profile.png'
+    user.profileImg === '/assets/Profile.png'
       ? 'https://trade-lab-x-server.vercel.app/assets/Profile.png' // default image
       : user.profileImg; // Cloudinary link
 
