@@ -52,6 +52,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-down:30px;
 }
 .tvcharts{
     display: flex;
