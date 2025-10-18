@@ -56,7 +56,7 @@ export default function UserProfile() {
   // Determine which image to display
   const displayImage = profileImg instanceof File
     ? URL.createObjectURL(profileImg) // preview newly selected file
-    : user.profileImg === 'assets/Profile.png'
+    : user.profileImg === '/assets/Profile.png'
       ? 'https://trade-lab-x-server.vercel.app/assets/Profile.png' // default local image
       : user.profileImg; // Cloudinary URL
 
