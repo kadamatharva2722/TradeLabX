@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 import axios from 'axios';
 
 function Signin() {
+
     const quotes = [
         "The goal of a successful trader is to make the best trades. Money is secondary.",
         "An investment in knowledge pays the best interest.",
@@ -34,20 +35,23 @@ function Signin() {
         setIsLoading(true);
         setError('');
 
-        axios.post('http://localhost:3000/register', { name, email, password })
-            .then(res => {
-                navigate('/login');
-            })
-            .catch(err => {
-                if (err.response?.data?.error) {
-                    setError(err.response.data.error);
-                } else {
-                    setError('Something went wrong. Please try again.');
-                }
-            })
-            .finally(() => {
-                setIsLoading(false);
-            });
+        axios.post(
+            'https://trade-lab-x-server.vercel.app/register',
+            { name, email, password }
+        )
+        .then(() => {
+            navigate('/login');
+        })
+        .catch(err => {
+            if (err.response?.data?.error) {
+                setError(err.response.data.error);
+            } else {
+                setError('Something went wrong. Please try again.');
+            }
+        })
+        .finally(() => {
+            setIsLoading(false);
+        });
     }
 
     return (
@@ -62,16 +66,27 @@ function Signin() {
                     <div className='form1'>
                         <form onSubmit={submitForm}>
                             <label>Name</label><br />
-                            <input placeholder='Enter Name'
-                                onChange={(e) => setName(e.target.value)} />
+                            <input
+                                placeholder='Enter Name'
+                                onChange={(e) => setName(e.target.value)}
+                                disabled={isLoading}
+                            /><br />
 
                             <label>Email</label><br />
-                            <input type="email" placeholder='Enter Email'
-                                onChange={(e) => setEmail(e.target.value)} />
+                            <input
+                                type="email"
+                                placeholder='Enter Email'
+                                onChange={(e) => setEmail(e.target.value)}
+                                disabled={isLoading}
+                            /><br />
 
                             <label>Password</label><br />
-                            <input type="password" placeholder='Enter Password'
-                                onChange={(e) => setPassword(e.target.value)} />
+                            <input
+                                type="password"
+                                placeholder='Enter Password'
+                                onChange={(e) => setPassword(e.target.value)}
+                                disabled={isLoading}
+                            /><br />
 
                             <button
                                 type='submit'
@@ -83,13 +98,13 @@ function Signin() {
                         </form>
 
                         {ErrorDisp && (
-                            <p style={{ color: 'red', fontSize: '15px' }}>
+                            <p style={{ padding: '5px', color: 'red', fontSize: '16px' }}>
                                 {ErrorDisp}
                             </p>
                         )}
                     </div>
 
-                    <p className='p2'>Already have an Account?</p>
+                    <p className='p2'>Already have an account?</p>
                     <button
                         className='buttonforLogin'
                         onClick={() => navigate('/login')}
